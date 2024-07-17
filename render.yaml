@@ -1,7 +1,7 @@
 services:
   # See https://render.com/docs/blueprint-spec for more info on render blueprints
   - type: web
-    name: XPulsar Strat3
+    name: XPulsar Strat4
     env: python
     plan: free
     # A requirements.txt file must exist
