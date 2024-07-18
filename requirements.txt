@@ -4,6 +4,7 @@ dash_table>=5.0.0
 numpy>=2.0.0
 pandas>=2.2.2
 plotly==5.21.0
+<<<<<<< HEAD
 gunicorn==20.1.0
 setuptools>=58.0.4
 wheel
