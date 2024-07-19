@@ -41,7 +41,7 @@ layout =  html.Div(style={'background-image': background_img,
         dbc.Row([
             dbc.Col([
                  create_titled_card('Description',
-                                    html.P("The algorithm presented herein represents a sophisticated, data-driven investment fund leveraging advanced AI and Machine Learning algorithms. This fund operates within the realm of US Index Futures, predicting the expansion of the daily range. The algorithm strategically engages both long and short positions to capitalise on market opportunities. ", 
+                                    html.P("The algorithm presented herein represents a sophisticated, data-driven investment fund leveraging advanced AI and Machine Learning algorithms. This fund operates within the realm of US Index Futures, predicting the expansion of the daily range. The algorithm strategically engages both long and short positions to capitalise on market opportunities. The trade execution is fully automated to prevent human error and emotion.", 
                                                     className='card-text', 
                                                     style={'color':'#95D7E0'},
                                                     ),

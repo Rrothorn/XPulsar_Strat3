@@ -34,7 +34,7 @@ dash.register_page(__name__, path='/')
 
 # downloading data containing all individual stock trades for the running year
 #fname = 'dataDT_daash.csv'
-fname = 'DC_RTY24.csv'
+fname = 'RTY_24.csv'
 df = pd.read_csv(f'../{fname}', parse_dates = ['datetime'], index_col = 'datetime')
 df_l = df.copy()
 df = df[df.index > '01-01-2024']
