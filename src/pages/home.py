@@ -87,7 +87,7 @@ layout = html.Div(
                                                     min=0,
                                                     max=1.25,
                                                     step=0.25,
-                                                    value=0.5,
+                                                    value=0.75,
                                        #             marks={i: str(i) for i in range(0.15, 0.4)},
                                                     ),
                                                 html.Hr(),
@@ -104,9 +104,9 @@ layout = html.Div(
                                                 dcc.Slider(
                                                     id='slip-slider',
                                                     min=0,
-                                                    max=3,
-                                                    step=0.5,
-                                                    value=0.5,
+                                                    max=0.6,
+                                                    step=0.1,
+                                                    value=0.1,
                                                     ),
                                                  ]),
                                            card_title_img),
@@ -277,18 +277,19 @@ layout = html.Div(
 
 def update_page1(selected_stop, selected_cost, selected_slip, selected_period):
     
+    pnlcol = 'pnl_best'
     # Redefining df to exclude days on basis of cutt_off selection
     cut_off = selected_stop / 100
-    dfD = df.resample('D').agg({'pnl_best':'sum'})
-    dfD = dfD[dfD.pnl_best != 0]
-    dfD = dfD[dfD.pnl_best.shift(1) > cut_off]
+    dfD = df.resample('D').agg({pnlcol:'sum'})
+    dfD = dfD[dfD[pnlcol] != 0]
+    dfD = dfD[dfD[pnlcol].shift(1) > cut_off]
     
     excluded_dates = dfD.index.normalize()
     dff = df[~df.index.normalize().isin(excluded_dates)]
     
     # Redefine df on basis of cost, slippage and timeperiod
     cost = selected_cost/10000
-    slip = selected_slip/(19000)  # divided by value of 1 nasdaq future 
+    slip = selected_slip/(2200)  # divided by value of 1 nasdaq future 
 
     if selected_period == 'opt1':
         start_hour = 0
@@ -304,7 +305,7 @@ def update_page1(selected_stop, selected_cost, selected_slip, selected_period):
     dfc = dff[(dff.index.hour >= start_hour) & (dff.index.hour <= end_hour)]
     
     dfc['pnl_ac'] = 0
-    dfc['pnl_ac'][dfc.pnl_best != 0] = dfc.pnl_best - cost - slip
+    dfc['pnl_ac'][dfc[pnlcol] != 0] = dfc[pnlcol] - cost - slip
     dfc['cr_ac'] = dfc.pnl_ac.cumsum() + 1
     dfc['pnl_plus'] = dfc.pnl_ac * dfc.cr_ac
     dfc['cr_plus'] = dfc.pnl_plus.cumsum() + 1
