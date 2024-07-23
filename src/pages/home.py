@@ -34,7 +34,7 @@ dash.register_page(__name__, path='/')
 
 # downloading data containing all individual stock trades for the running year
 #fname = 'dataDT_daash.csv'
-fname = 'RTY_24.csv'
+fname = 'rty24_cvo.csv'
 df = pd.read_csv(f'../{fname}', parse_dates = ['datetime'], index_col = 'datetime')
 df_l = df.copy()
 df = df[df.index > '01-01-2024']
@@ -277,7 +277,7 @@ layout = html.Div(
 
 def update_page1(selected_stop, selected_cost, selected_slip, selected_period):
     
-    pnlcol = 'pnl_best'
+    pnlcol = 'pnl_stop3'
     # Redefining df to exclude days on basis of cutt_off selection
     cut_off = selected_stop / 100
     dfD = df.resample('D').agg({pnlcol:'sum'})
