@@ -87,7 +87,7 @@ navbar= dbc.Navbar(
             # Logo on the right
             dbc.Col([
                 html.Div([
-                    html.Img(src='assets/CAPITAL3.png', height='100vh', className='logo-img'),
+                    html.Img(src='assets/CAPITAL5_high_res.png', height='100vh', className='logo-img'),
                 ], style={'width': '100%'})
             ], width=2, className="ml-auto"),  # Use className="ml-auto" to push the logo to the right
         ], fluid=True),
