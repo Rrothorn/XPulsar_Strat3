@@ -32,17 +32,18 @@ dash.register_page(__name__)
 
 # downloading data containing all individual stock trades for the running year
 #fname = 'dataDT_daash.csv'
-fname = 'RTY_22_23.csv'
-fname = 'rty_23.csv'
+
 fname = 'rty2223_cvo.csv'
+fname = 'rty23_dynstop.csv'
+fname = 'rty_22_23_dynstop_vol.csv'
 df = pd.read_csv(f'../{fname}', parse_dates = ['datetime'], index_col = 'datetime')
 df = df[df.index < '01-01-2024']
 
 #print(df.pnl_best.sum())
 
-pnlcol = 'pnl_stop1'
+pnlcol = 'pnl'
 # unlike on the main page we have selected a close to optimal cutoff pnl of 0.6% on the previous trading day
-selected_pnl = 0.006
+selected_pnl = 0.025
 dfD = df.resample('D').agg({pnlcol:'sum'})
 dfD = dfD[dfD[pnlcol] != 0]
 dfD = dfD[dfD[pnlcol].shift(1) > selected_pnl]
