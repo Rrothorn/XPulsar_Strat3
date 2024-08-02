@@ -384,7 +384,7 @@ def generate_QDDtable(df):
 
 def generate_gauge_yoytarget_model(dfg):
     year = 2024
-    target = 0.40
+    target = 0.52
     
     #get current and previous years sales
     start_date = str(year) + '-01-01'
@@ -409,7 +409,7 @@ def generate_gauge_yoytarget_model(dfg):
        mode = "gauge+number",   # also including the delta to show how far off the target we are
 #       title = {'text': f'{figln_title} Sales vs Target'},
        delta = {'reference':  profit_target, 'valueformat': '.2%'},
-       gauge = {'axis': {'range': [None, 1.35 * target], 'tickformat':',.2%', 'tickvals':[0,0.12,0.36,0.48]},
+       gauge = {'axis': {'range': [None, 1.35 * target], 'tickformat':',.2%', 'tickvals':[0,0.16,0.48,0.64]},
                 'bar': {'color': bar_color},  
         #        'shape':'angular',
                 'steps' : [{'range': [0, 1.35 * target], 'color': '#FFFFFF'},],
@@ -428,7 +428,7 @@ def generate_gauge_qoqtarget_model(dfg):
     dfc = dfg[(dfg.index > start_date) & (dfg.index < end_date)]
     cur_profit = dfc['pnl_plus'].sum() 
     
-    profit_target = 0.1 
+    profit_target = 0.13 
     
     if cur_profit/profit_target < 0.75:
         bar_color = '#D318E1'
@@ -445,7 +445,7 @@ def generate_gauge_qoqtarget_model(dfg):
        mode = "gauge+number",   # also including the delta to show how far off the target we are
 #       title = {'text': f'{figln_title} Sales vs Target'},
        delta = {'reference':  profit_target, 'valueformat': '.2%'},
-       gauge = {'axis': {'range': [None, profit_target * 1.35], 'tickformat':',.2%', 'tickvals':[0,0.03,0.09,0.12]},
+       gauge = {'axis': {'range': [None, profit_target * 1.35], 'tickformat':',.2%', 'tickvals':[0,0.04,0.12,0.16]},
                 'bar': {'color': bar_color},  
         #        'shape':'angular',
                 'steps' : [{'range': [0, profit_target * 1.35], 'color': '#FFFFFF'},],
@@ -459,12 +459,12 @@ def generate_gauge_qoqtarget_model(dfg):
 def generate_gauge_momtarget_model(dfg):
     
     #get current and previous years sales
-    start_date = '2024-06-30'
-    end_date =  '2024-08-01'   
+    start_date = '2024-07-31'
+    end_date =  '2024-09-01'   
     dfc = dfg[(dfg.index > start_date) & (dfg.index < end_date)]
     cur_profit = dfc['pnl_plus'].sum() 
     
-    profit_target = 0.033
+    profit_target = 0.043
     
     if cur_profit/profit_target < 0.75:
         bar_color = '#D318E1'
@@ -481,7 +481,7 @@ def generate_gauge_momtarget_model(dfg):
        mode = "gauge+number",   # also including the delta to show how far off the target we are
 #       title = {'text': f'{figln_title} Sales vs Target'},
        delta = {'reference':  profit_target, 'valueformat': '.2%'},
-       gauge = {'axis': {'range': [None, profit_target * 1.35], 'tickformat':',.2%', 'tickvals':[0,0.01,0.03,0.04]},
+       gauge = {'axis': {'range': [None, profit_target * 1.35], 'tickformat':',.2%', 'tickvals':[0,0.02,0.04,0.06]},
                 'bar': {'color': bar_color},  
         #        'shape':'angular',
                 'steps' : [{'range': [0, profit_target * 1.35], 'color': '#FFFFFF'},],
