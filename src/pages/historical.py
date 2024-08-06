@@ -36,6 +36,7 @@ dash.register_page(__name__)
 fname = 'rty2223_cvo.csv'
 fname = 'rty23_dynstop.csv'
 fname = 'rty_22_23_dynstop_vol.csv'
+#fname = 'RTY_YTD24.csv'
 df = pd.read_csv(f'../{fname}', parse_dates = ['datetime'], index_col = 'datetime')
 df = df[df.index < '01-01-2024']
 

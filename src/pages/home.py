@@ -37,6 +37,7 @@ dash.register_page(__name__, path='/')
 fname = 'rty24_cvo.csv'
 fname = 'rty24_dynstop.csv'
 fname = 'rty_24_dynstop_vol.csv'
+fname = 'RTY_YTD24.csv'
 df = pd.read_csv(f'../{fname}', parse_dates = ['datetime'], index_col = 'datetime')
 df_l = df.copy()
 df = df[df.index > '01-01-2024']
@@ -87,9 +88,9 @@ layout = html.Div(
                                                 dcc.Slider(
                                                     id='stop-slider',
                                                     min=0,
-                                                    max=1.25,
-                                                    step=0.25,
-                                                    value=0.75,
+                                                    max=2,
+                                                    step=0.5,
+                                                    value=1,
                                        #             marks={i: str(i) for i in range(0.15, 0.4)},
                                                     ),
                                                 html.Hr(),
