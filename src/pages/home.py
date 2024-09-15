@@ -38,6 +38,7 @@ fname = 'rty24_cvo.csv'
 fname = 'rty24_dynstop.csv'
 fname = 'rty_24_dynstop_vol.csv'
 fname = 'RTY_YTD24.csv'
+#fname = 'RTY19_2024.csv'
 df = pd.read_csv(f'../{fname}', parse_dates = ['datetime'], index_col = 'datetime')
 df_l = df.copy()
 df = df[df.index > '01-01-2024']
