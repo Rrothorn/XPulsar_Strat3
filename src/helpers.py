@@ -383,7 +383,7 @@ def generate_QDDtable(df):
     return dftable    
 
 def generate_gauge_yoytarget_model(dfg):
-    year = 2024
+    year = 2025
     target = 0.40
     
     #get current and previous years sales
@@ -423,8 +423,8 @@ def generate_gauge_yoytarget_model(dfg):
 def generate_gauge_qoqtarget_model(dfg):
     
     #get current and previous years sales
-    start_date = '2024-09-30'
-    end_date =  '2024-12-31'   
+    start_date = '2025-01-01'
+    end_date =  '2025-04-01'   
     dfc = dfg[(dfg.index > start_date) & (dfg.index < end_date)]
     cur_profit = dfc['pnl_plus'].sum() 
     
@@ -459,8 +459,8 @@ def generate_gauge_qoqtarget_model(dfg):
 def generate_gauge_momtarget_model(dfg):
     
     #get current and previous years sales
-    start_date = '2024-10-31'
-    end_date =  '2024-12-01'   
+    start_date = '2025-01-01'
+    end_date =  '2025-02-01'   
     dfc = dfg[(dfg.index > start_date) & (dfg.index < end_date)]
     cur_profit = dfc['pnl_plus'].sum() 
     

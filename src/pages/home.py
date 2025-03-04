@@ -38,6 +38,8 @@ fname = 'rty24_cvo.csv'
 fname = 'rty24_dynstop.csv'
 fname = 'rty_24_dynstop_vol.csv'
 fname = 'RTY_YTD24.csv'
+fname = 'rty_ir.csv'
+fname = 'rty_mom.csv'
 #fname = 'RTY19_2024.csv'
 df = pd.read_csv(f'../{fname}', parse_dates = ['datetime'], index_col = 'datetime')
 df_l = df.copy()
@@ -88,8 +90,8 @@ layout = html.Div(
                                                 html.H6("Adjust Cutoff to Pause Trading"),
                                                 dcc.Slider(
                                                     id='stop-slider',
-                                                    min=0,
-                                                    max=2,
+                                                    min=0.5,
+                                                    max=2.5,
                                                     step=0.5,
                                                     value=1,
                                        #             marks={i: str(i) for i in range(0.15, 0.4)},
