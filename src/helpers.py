@@ -409,7 +409,7 @@ def generate_gauge_yoytarget_model(dfg):
        mode = "gauge+number",   # also including the delta to show how far off the target we are
 #       title = {'text': f'{figln_title} Sales vs Target'},
        delta = {'reference':  profit_target, 'valueformat': '.2%'},
-       gauge = {'axis': {'range': [None, 1.35 * target], 'tickformat':',.2%', 'tickvals':[0,0.16,0.48,0.64]},
+       gauge = {'axis': {'range': [None, 1.35 * target], 'tickformat':',.2%', 'tickvals':[0,0.16,0.36,0.48]},
                 'bar': {'color': bar_color},  
         #        'shape':'angular',
                 'steps' : [{'range': [0, 1.35 * target], 'color': '#FFFFFF'},],
@@ -445,7 +445,7 @@ def generate_gauge_qoqtarget_model(dfg):
        mode = "gauge+number",   # also including the delta to show how far off the target we are
 #       title = {'text': f'{figln_title} Sales vs Target'},
        delta = {'reference':  profit_target, 'valueformat': '.2%'},
-       gauge = {'axis': {'range': [None, profit_target * 1.35], 'tickformat':',.2%', 'tickvals':[0,0.04,0.12,0.16]},
+       gauge = {'axis': {'range': [None, profit_target * 1.35], 'tickformat':',.2%', 'tickvals':[0,0.04,0.08,0.12]},
                 'bar': {'color': bar_color},  
         #        'shape':'angular',
                 'steps' : [{'range': [0, profit_target * 1.35], 'color': '#FFFFFF'},],
@@ -459,8 +459,8 @@ def generate_gauge_qoqtarget_model(dfg):
 def generate_gauge_momtarget_model(dfg):
     
     #get current and previous years sales
-    start_date = '2025-04-01'
-    end_date =  '2025-05-01'   
+    start_date = '2025-05-01'
+    end_date =  '2025-06-01'   
     dfc = dfg[(dfg.index > start_date) & (dfg.index < end_date)]
     cur_profit = dfc['pnl_plus'].sum() 
     
@@ -481,7 +481,7 @@ def generate_gauge_momtarget_model(dfg):
        mode = "gauge+number",   # also including the delta to show how far off the target we are
 #       title = {'text': f'{figln_title} Sales vs Target'},
        delta = {'reference':  profit_target, 'valueformat': '.2%'},
-       gauge = {'axis': {'range': [None, profit_target * 1.35], 'tickformat':',.2%', 'tickvals':[0,0.02,0.04,0.06]},
+       gauge = {'axis': {'range': [None, profit_target * 1.35], 'tickformat':',.2%', 'tickvals':[0,0.015,0.03,0.04]},
                 'bar': {'color': bar_color},  
         #        'shape':'angular',
                 'steps' : [{'range': [0, profit_target * 1.35], 'color': '#FFFFFF'},],
@@ -529,7 +529,7 @@ def generate_gauge_multimodel(df):
                         paper_bgcolor = '#FFFFFF',
                         font_color = '#025E70',
                         font_family = 'arial',
-                        title_text=f"<b>Profit Targets 2024</b>",
+                        title_text=f"<b>Profit Targets 2025</b>",
                         title_x=0.5,  # Center the main title
                         title_font=dict(
  #               family="Arial",  # Specify the font family
